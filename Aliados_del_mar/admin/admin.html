@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin - Reservas</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Panel de Administración - Reservas</h1>
+  </header>
+  <main>
+    <!-- LOGIN SECTION -->
+    <section id="loginSection" class="login-container">
+      <div class="login-card">
+        <h2 style="color:#FF7A18; margin-bottom: 20px;">Admin Access</h2>
+        <form id="loginForm">
+          <div class="input-group">
+            <label>Usuario</label>
+            <input type="email" id="email" required placeholder="admin@hotel.com">
+          </div>
+          <div class="input-group">
+            <label>Contraseña</label>
+            <input type="password" id="password" required placeholder="••••••">
+          </div>
+          <button type="submit" class="btn-login">Ingresar</button>
+
+          <div style="margin-top:15px;">
+            <a href="#" id="forgotPasswordBtn"
+              style="color:#FF7A18; text-decoration:none; font-size:14px; font-weight:600;">¿Olvidaste tu
+              contraseña?</a>
+          </div>
+
+          <p id="loginError" style="color:red; display:none; margin-top:10px; font-size:14px;"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- DASHBOARD SECTION (Hidden by default) -->
+    <section id="dashboardSection" class="hidden">
+      <div
+        style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; padding: 0 20px; max-width:600px; margin: 0 auto;">
+        <h2 style="margin:0;">Reservas</h2>
+        <button id="logoutBtn"
+          style="background:#d9534f; color:white; border:none; padding:8px 12px; border-radius:4px; cursor:pointer;">Salir</button>
+      </div>
+      <div id="adminReservationInfo" class="reservation-info">
+        <!-- Aquí se mostrará la info de la última reserva -->
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,563 @@
+/* ---------------- Reset y Base ---------------- */
+body {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  margin: 0;
+  background: linear-gradient(180deg, #fff 0%, #fffaf2 100%);
+  color: #14313b;
+}
+.max-width {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+h1, h2 {
+  font-weight: 700;
+}
+
+/* ---------------- Header ---------------- */
+.header {
+  background: white;
+  padding: 14px 20px;
+  box-shadow: 0 1px 6px rgb(0 0 0 / 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #ddd;
+}
+.hotel-logo {
+  font-weight: 700;
+  font-size: 24px;
+  color: #FF7A18;
+  letter-spacing: 1.2px;
+}
+
+/* ---------------- Hero Slider ---------------- */
+#heroSlider {
+  position: relative;
+  height: 65vh;
+  min-height: 400px;
+  overflow: hidden;
+  border-radius: 0 0 28px 28px;
+  box-shadow: 0 4px 15px rgba(255, 122, 24, 0.3);
+}
+#heroSlider .slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1.5s ease-in-out;
+  opacity: 0;
+  will-change: opacity;
+}
+#heroSlider .slide:first-child {
+  opacity: 1;
+}
+
+/* ---------------- Section Titles ---------------- */
+.section-title {
+  max-width: 1200px;
+  margin: 32px auto 12px;
+  font-size: 28px;
+  padding-left: 20px;
+  color: #184;
+}
+
+/* ---------------- Amenities ---------------- */
+.amenities-grid {
+  display: flex;
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto 48px;
+  padding: 0 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.amenity-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: #184;
+  font-weight: 600;
+  width: 100px;
+}
+.amenity-item img {
+  width: 40px;
+  height: 40px;
+}
+
+/* ---------------- Rooms ---------------- */
+.rooms-list {
+  max-width: 1200px;
+  margin: 0 auto 48px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}
+.room-card {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.1);
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+.room-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.room-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+.room-info h3 {
+  margin: 0;
+  font-size: 22px;
+  color: #184;
+}
+.room-info p {
+  flex-grow: 1;
+  margin: 0;
+  color: #444;
+}
+.price {
+  font-weight: 700;
+  font-size: 18px;
+  color: #FF7A18;
+}
+.room-info button {
+  margin-top: auto;
+  align-self: flex-start;
+  background: linear-gradient(90deg, #FF7A18, #FFB86B);
+  border: none;
+  color: white;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.room-info button:hover {
+  background: #e06a00;
+}
+
+
+/* ---------------- Viewer Booking Panel ---------------- */
+#viewerBookingPanel .dates-select {
+  flex-wrap: wrap; /* para móviles */
+  gap: 12px;
+}
+.dates-select label,
+#viewerBookingPanel .dates-select label {
+  font-size: 14px;
+  white-space: nowrap;
+  flex: 1 1 100px; /* mínimo ancho */
+}
+.dates-select input[type="date"],
+#viewerBookingPanel .dates-select input[type="date"] {
+  flex: 1 1 120px; /* ancho flexible */
+  min-width: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(20, 49, 59, 0.15);
+  box-sizing: border-box;
+}
+
+/* ---------------- Total Price ---------------- */
+.total-price {
+  font-weight: 700;
+  font-size: 18px;
+  color: #184;
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+/* ---------------- Booking Panel Buttons ---------------- */
+.booking-panel .btn,
+#viewerBookingPanel .btn {
+  width: 100%;
+  background: linear-gradient(90deg, #FF7A18, #FFB86B);
+  color: white;
+  border: none;
+  padding: 14px 0;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.booking-panel .btn:hover,
+#viewerBookingPanel .btn:hover {
+  background: #e06a00;
+}
+#viewerBookingPanel .btn.secondary {
+  background: #ddd;
+  color: #444;
+}
+#viewerBookingPanel .btn.secondary:hover {
+  background: #bbb;
+}
+
+/* ---------------- Modal Base ---------------- */
+#viewerModal.modal-hidden {
+  display: none;
+}
+#viewerModal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(20, 49, 59, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 24px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ---------------- Modal Content ---------------- */
+.modal-content {
+  background: #fffaf2;
+  border-radius: 20px;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  box-shadow: 0 16px 48px rgba(255, 122, 24, 0.35);
+  position: relative;
+  font-family: inherit;
+}
+
+/* ---------------- Modal Close Button ---------------- */
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #FF7A18;
+  transition: color 0.3s ease;
+}
+.modal-close:hover {
+  color: #e06a00;
+}
+
+/* ---------------- Modal Left (Slider) ---------------- */
+.modal-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.viewer-carousel {
+  width: 100%;
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fffaf2;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.viewer-carousel img,
+.viewer-carousel video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+  user-select: none;
+}
+
+/* ---------------- Carousel Controls ---------------- */
+.carousel-controls {
+  margin-top: 16px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+.carousel-controls button {
+  background: #FF7A18;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+.carousel-controls button:hover {
+  background: #e06a00;
+}
+
+/* ---------------- Modal Right (Info y Booking) ---------------- */
+.modal-right {
+  max-height: 100vh;  /* altura máxima que no sobrepase la pantalla */
+  overflow-y: auto;   /* scroll vertical si hace falta */
+  padding: 16px;
+  box-sizing: border-box;
+}
+#viewerInfo {
+  padding-bottom: 20px;
+}
+#viewerInfo h3 {
+  margin: 0 0 8px 0;
+  color: #FF7A18;
+  font-weight: 700;
+  font-size: 24px;
+}
+#viewerInfo p {
+  margin: 0 0 14px 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ---------------- Booking Panel Inside Modal ---------------- */
+#viewerBookingPanel {
+  /* Puedes limitar el ancho o el tamaño para que no desborde */
+  max-width: 100%;
+}
+#viewerBookingPanel label {
+  font-size: 14px;
+  color: #184;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+#viewerBookingPanel input[type="date"] {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(20, 49, 59, 0.15);
+  box-sizing: border-box;
+  font-family: inherit;
+}
+#modalTotalPrice {
+  font-weight: 800;
+  color: #FF7A18;
+  font-size: 18px;
+}
+#viewerBookingPanel .btn {
+  flex: 1;
+  padding: 14px 0;
+  margin-top: 0;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+/* ---------------- Pop-up formulario ---------------- */
+#bookingFormPopup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+}
+
+#bookingFormPopup.active {
+  display: flex;
+}
+
+#bookingFormPopup .popup-content {
+  background: #fffaf2;
+  padding: 30px 24px;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(255, 122, 24, 0.3);
+  font-family: inherit;
+  color: #14313b;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#bookingFormPopup h3 {
+  margin: 0 0 12px;
+  font-weight: 700;
+  font-size: 22px;
+  color: #FF7A18;
+  text-align: center;
+}
+
+/* Aplicar flexbox para centrar elementos del formulario */
+#bookingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center; 
+}
+
+#bookingForm label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 14px;
+  color: #184;
+  gap: 6px;
+  width: 100%;
+}
+
+#bookingForm input[type="text"],
+#bookingForm input[type="email"],
+#bookingForm input[type="number"],
+#bookingForm input[type="tel"] {
+  padding: 10px 12px;
+  border: 1.5px solid rgba(20, 49, 59, 0.2);
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+#bookingForm input[type="text"]:focus,
+#bookingForm input[type="email"]:focus,
+#bookingForm input[type="number"]:focus,
+#bookingForm input[type="tel"]:focus {
+  outline: none;
+  border-color: #FF7A18;
+  box-shadow: 0 0 5px rgba(255, 122, 24, 0.5);
+}
+
+#bookingForm button[type="submit"] {
+  margin-top: 8px;
+  background: linear-gradient(90deg, #FF7A18, #FFB86B);
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 0;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 250px; 
+}
+
+#bookingForm button[type="submit"]:hover {
+  background: #e06a00;
+}
+
+/* Estilos para el botón de agradecimiento con clase .btn-close */
+.btn-close {
+  margin-top: 15px; 
+  background: linear-gradient(90deg, #FF7A18, #FFB86B);
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 0;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%; 
+  max-width: 250px; 
+  align-self: center;
+}
+
+.btn-close:hover {
+  background: #e06a00;
+}
+
+#closeBookingForm {
+  margin-top: 10px;
+  background: #ddd;
+  color: #444;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 0;
+  border-radius: 14px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+#closeBookingForm:hover {
+  background: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  #bookingFormPopup .popup-content {
+    padding: 20px 16px;
+  }
+  #bookingForm button[type="submit"],
+  #closeBookingForm,
+  .btn-close { /* Asegurar que el nuevo botón también se ajuste */
+    font-size: 14px;
+    padding: 12px 0;
+  }
+}
+
+
+
+/* ---------------- Responsive (Mobile) ---------------- */
+@media (max-width: 768px) {
+  #viewerModal {
+    align-items: flex-start;
+    padding: 0;
+  }
+  .modal-content {
+    flex-direction: column;
+    max-width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    position: relative;
+  }
+  .modal-left {
+    width: 100%;
+    height: 300px;
+  }
+  .viewer-carousel {
+    height: 100%;
+    border-radius: 0;
+  }
+  .modal-right {
+    width: 100%;
+    padding: 16px 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+  /* Ajuste para la X (cerrar) */
+  .modal-close {
+    position: fixed !important;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    padding: 4px 10px;
+    z-index: 10000;
+    color: #444;
+  }
+}
+/* Flatpickr Customization */
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.flatpickr-disabled:hover {
+  background: #ffcccc !important; /* Light red background */
+  color: #ff0000 !important;      /* Red text */
+  border-color: #ffcccc !important;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
