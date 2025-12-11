@@ -119,13 +119,13 @@ const hotelData = {
           'assets/tc7.jpg',
         ]
       },
-            {
+      {
         id: 'r8',
         name: 'Tolú - Coveñas: Espacio 2',
         price: 1300000,
         image: 'assets/tc1.jpg',
         description:
-'Apartaestudio frente al mar ideal para grupos grandes 🌊✨<br>Cuenta con 2 camas dobles, 2 sofás cama para 2 personas, 4 colchonetas (capacidad total 7–10 personas), cocina equipada, TV DirecTV, aire acondicionado y nevera para una estadía cómoda y relajada 🛏️❄️🍳',
+          'Apartaestudio frente al mar ideal para grupos grandes 🌊✨<br>Cuenta con 2 camas dobles, 2 sofás cama para 2 personas, 4 colchonetas (capacidad total 7–10 personas), cocina equipada, TV DirecTV, aire acondicionado y nevera para una estadía cómoda y relajada 🛏️❄️🍳',
         availableRanges: [['2025-12-05', '2026-02-05']],
         media: [
           'assets/tc1.jpg',
@@ -530,6 +530,18 @@ document.getElementById('bookingForm').addEventListener('submit', async function
 
     // Guardar reserva en Firebase
     await addReservation(data);
+
+    // Enviar backup a Google Sheets
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbwaiFm_CAY9p86XgkH_hzCYVvX5axGVszI1QNRRUXxOaYzwq6Ta9nsY1rp1C-I8pq66/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data).toString()
+      });
+    } catch (sheetErr) {
+      console.error("Error enviando a Sheets:", sheetErr);
+    }
 
     // Mostrar mensaje de gracias con botón de WhatsApp
     const popupContent = document.querySelector('#bookingFormPopup .popup-content');
