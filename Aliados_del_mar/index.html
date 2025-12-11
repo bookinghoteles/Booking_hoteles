@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aliados del Mar — Reserva tu estadía</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="hotel-logo">Aliados del Mar</div>
+  </header>
+
+  <section class="hero" id="heroSlider"></section>
+
+  <main>
+    <section class="hotel-description max-width">
+      <h1>Aliados del Mar</h1>
+      <p>Ubicado frente a la playa, disfruta atardeceres únicos y experiencias premium con nuestra cálida atención
+        caribeña.</p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Amenidades</h2>
+      <div class="amenities-grid" id="amenitiesGrid"></div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Cocco Beach - Coveñas</h2>
+      <div class="rooms-list" id="roomsList"></div>
+    </section>
+
+
+  </main>
+
+  <!-- Viewer Modal -->
+  <div id="viewerModal" class="modal-hidden">
+    <div class="modal-content">
+      <button id="modalCloseBtn" class="modal-close">&times;</button>
+      <div class="modal-left">
+        <div id="viewerCarousel" class="viewer-carousel"></div>
+        <div class="carousel-controls">
+          <button id="prevMediaBtn" class="btn secondary">◀</button>
+          <button id="nextMediaBtn" class="btn secondary">▶</button>
+        </div>
+      </div>
+      <div class="modal-right">
+        <div id="viewerInfo"></div>
+        <div id="viewerBookingPanel"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pop-up formulario reserva -->
+  <div id="bookingFormPopup" class="popup-hidden">
+    <div class="popup-content">
+      <h3>Completa tus datos para la reserva</h3>
+      <form id="bookingForm">
+        <label>Nombre: <input type="text" name="name" required /></label>
+        <label>Edad: <input type="number" name="age" min="1" required /></label>
+        <label>Cantidad de personas: <input type="number" name="people" min="1" required /></label>
+        <label>Correo: <input type="email" name="email" required /></label>
+        <label>Teléfono: <input type="tel" name="phone" required /></label>
+        <label>Documento de identidad: <input type="text" name="document" required /></label>
+        <button type="submit">Enviar</button>
+      </form>
+      <button id="closeBookingForm">Cancelar</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      © 2025 Booking Hoteles — Reserva online
+    </div>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+
+</html>
