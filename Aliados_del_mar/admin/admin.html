@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin - Reservas</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Panel de Administración - Reservas</h1>
+  </header>
+  <main>
+    <!-- LOGIN SECTION -->
+    <section id="loginSection" class="login-container">
+      <div class="login-card">
+        <h2 style="color:#FF7A18; margin-bottom: 20px;">Admin Access</h2>
+        <form id="loginForm">
+          <div class="input-group">
+            <label>Usuario</label>
+            <input type="email" id="email" required placeholder="admin@hotel.com">
+          </div>
+          <div class="input-group">
+            <label>Contraseña</label>
+            <input type="password" id="password" required placeholder="••••••">
+          </div>
+          <button type="submit" class="btn-login">Ingresar</button>
+
+          <div style="margin-top:15px;">
+            <a href="#" id="forgotPasswordBtn"
+              style="color:#FF7A18; text-decoration:none; font-size:14px; font-weight:600;">¿Olvidaste tu
+              contraseña?</a>
+          </div>
+
+          <p id="loginError" style="color:red; display:none; margin-top:10px; font-size:14px;"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- DASHBOARD SECTION (Hidden by default) -->
+    <section id="dashboardSection" class="hidden">
+      <div
+        style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; padding: 0 20px; max-width:600px; margin: 0 auto;">
+        <h2 style="margin:0;">Reservas</h2>
+        <button id="manageUsersBtn" class="hidden" style="background:#0F9D58; color:white; border:none; padding:8px 12px; border-radius:4px; margin-right: 10px; cursor:pointer;">Gestionar Usuarios</button>
+        <button id="logoutBtn"
+          style="background:#d9534f; color:white; border:none; padding:8px 12px; border-radius:4px; cursor:pointer;">Salir</button>
+      </div>
+      
+      <!-- Users Management Panel -->
+      <div id="usersPanel" class="hidden" style="max-width:600px; margin: 0 auto; background:white; padding:20px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1); margin-bottom:20px;">
+        <h3>Gestión de Usuarios</h3>
+        
+        <div class="add-user-form" style="margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #eee;">
+            <h4>Agregar/Editar Usuario</h4>
+            <div style="margin-bottom:10px;">
+                <label>Email del Administrador:</label>
+                <input type="email" id="adminEmail" placeholder="admin@ejemplo.com" style="width:100%; padding:8px; margin-top:5px;">
+            </div>
+            
+            <div style="margin-bottom:10px;">
+                <label>Rol:</label>
+                <select id="adminRole" style="width:100%; padding:8px; margin-top:5px;">
+                    <option value="admin">Administrador (Ver habitaciones asignadas)</option>
+                    <option value="superadmin">Super Admin (Control total)</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom:10px;">
+                <label>Habitaciones permitidas:</label>
+                <div id="roomsCheckboxes" style="display:grid; grid-template-columns: 1fr; gap:5px; margin-top:5px; max-height:200px; overflow-y:auto;">
+                    <!-- Checkboxes will be injected here -->
+                </div>
+            </div>
+
+            <button id="saveUserBtn" style="background:#4285F4; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer;">Guardar Usuario</button>
+            <button id="cancelUserEditBtn" style="background:#ccc; color:black; border:none; padding:8px 16px; border-radius:4px; cursor:pointer;">Cancelar</button>
+        </div>
+
+        <h4>Usuarios Existentes</h4>
+        <div id="usersList">
+            <!-- List will be injected here -->
+        </div>
+
+      </div>
+      <div id="adminReservationInfo" class="reservation-info">
+        <!-- Aquí se mostrará la info de la última reserva -->
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="admin.js"></script>
+</body>
+
+</html>
